@@ -65,14 +65,15 @@ The `local.settings.json` file is included in this template with default values 
     azurite
     ```
 
-1. In your project terminal, restore dependencies and start the Functions host:
+1. In your project terminal, start the Functions host:
 
     ```shell
-    go mod tidy
     func start
     ```
 
-    `func start` automatically builds the Go project before launching the local Azure Functions host.
+    `func start` automatically builds the Go project (via `go build`) before launching the local Azure Functions host, resolving dependencies from the checked-in `go.sum`.
+
+    > **Note:** Run `go mod tidy` only when you first add or remove imports — it's a dependency-manifest step, not a per-run build step. It's not required on a fresh clone since `go.sum` is committed.
 
 1. From a new terminal, call the HTTP GET endpoint:
 
