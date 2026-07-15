@@ -1,5 +1,10 @@
 bin/
 vendor/
+.azure/
+AzuriteConfig
+*.log
+.env
+*.env
 *.exe
 *.exe~
 *.dll
